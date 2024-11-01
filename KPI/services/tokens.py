@@ -31,6 +31,6 @@ class TokenFactory:
         elif text == "Regex":
             return Token(REGEX, text)
         elif text.startswith('"') and text.endswith('"'):
-            return Token(PATTERN, text[1:-1])  # Remove quotes from the pattern
+            return Token(PATTERN, text[1:-1])  # Remove quotes
         else:
             return Token(VALUE, text.strip())

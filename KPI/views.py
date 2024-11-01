@@ -16,7 +16,7 @@
 
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from rest_framework.decorators import action, api_view
+from rest_framework.decorators import action
 from KPI.models import KPI, AssetKPI
 from KPI.serializers import KPISerializer, AssetKPISerializer
 

@@ -4,7 +4,7 @@ import json
 class DataIngestor:
     def __init__(self, file_path, frequency=5):
         self.file_path = file_path
-        self.frequency = frequency  # in seconds
+        self.frequency = frequency 
 
     def read_messages(self):
         """Read messages from a text file at the specified frequency."""
@@ -12,4 +12,4 @@ class DataIngestor:
             for line in file:
                 message = json.loads(line.strip())
                 yield message
-                time.sleep(self.frequency)  # Wait before processing the next message
+                time.sleep(self.frequency) 

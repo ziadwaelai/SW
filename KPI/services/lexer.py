@@ -41,27 +41,24 @@ class Lexer:
             self.pos += 1
             return self.get_next_token()
 
-        # Handle Regex function
         if self.text[self.pos:].startswith("Regex"):
             self.pos += len("Regex")
             return TokenFactory.create_token("Regex")
 
-        # Extract attribute value and pattern
         if current_char == '(' or current_char == ',' or current_char == ')':
             self.pos += 1
-            return self.get_next_token()  # Ignore separators
+            return self.get_next_token()  
 
-        # Handle pattern inside quotes
         if current_char == '"':
             pattern_value = ''
             self.pos += 1  # Skip opening quote
             while self.pos < len(self.text) and self.text[self.pos] != '"':
                 pattern_value += self.text[self.pos]
                 self.pos += 1
-            self.pos += 1  # Skip closing quote
+            self.pos += 1 
             return TokenFactory.create_token(f'"{pattern_value}"')
 
-        # Capture attribute value or other tokens
+        
         value = ''
         while self.pos < len(self.text) and self.text[self.pos] not in ",) ":
             value += self.text[self.pos]
